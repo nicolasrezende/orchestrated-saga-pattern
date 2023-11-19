@@ -1,10 +1,8 @@
 package br.com.orchestrated.pattern.orderservice.service;
 
 import br.com.orchestrated.pattern.orderservice.dto.OrderDto;
-import br.com.orchestrated.pattern.orderservice.model.Costumer;
 import br.com.orchestrated.pattern.orderservice.model.Event;
 import br.com.orchestrated.pattern.orderservice.model.Order;
-import br.com.orchestrated.pattern.orderservice.model.OrderDetail;
 import br.com.orchestrated.pattern.orderservice.producer.EventProducer;
 import br.com.orchestrated.pattern.orderservice.repository.OrderRepository;
 import br.com.orchestrated.pattern.orderservice.utils.JsonUtil;

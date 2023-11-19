@@ -18,7 +18,7 @@ public class Order {
 
     @Id
     private String id;
-    private Costumer costumer;
+    private Customer costumer;
     private OrderDetail orderDetail;
     private LocalDateTime createdAt;
 }

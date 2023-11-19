@@ -1,7 +1,7 @@
 package br.com.orchestrated.pattern.orderservice.dto;
 
 import br.com.orchestrated.pattern.orderservice.enums.ETypeOperation;
-import br.com.orchestrated.pattern.orderservice.model.Costumer;
+import br.com.orchestrated.pattern.orderservice.model.Customer;
 import br.com.orchestrated.pattern.orderservice.model.Order;
 import br.com.orchestrated.pattern.orderservice.model.OrderDetail;
 import jakarta.validation.constraints.NotBlank;
@@ -22,7 +22,7 @@ public class OrderDto {
     @NotBlank(message = "The costumer document is required.")
     @Size(min = 11, max = 11, message = "the costumer document must have a maximum of 11 characters.")
     @CPF(message = "The costumer document it is not a valid CPF.")
-    private String costumerDocument;
+    private String customerDocument;
 
     @NotBlank(message = "The ticker symbol is required.")
     @Size(min = 3, max = 6, message = "The ticker symbol must be between 3 and 6 characters.")
@@ -35,9 +35,9 @@ public class OrderDto {
     private ETypeOperation operation;
 
     public Order toOrder() {
-        var costumer = Costumer
+        var costumer = Customer
                 .builder()
-                .document(costumerDocument)
+                .document(customerDocument)
                 .build();
 
         var orderDetail = OrderDetail
