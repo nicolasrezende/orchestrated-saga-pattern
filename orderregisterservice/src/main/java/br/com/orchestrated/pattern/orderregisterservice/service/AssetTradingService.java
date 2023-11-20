@@ -94,6 +94,8 @@ public class AssetTradingService {
                 .build();
 
         this.emailService.sendEmail(emailDto);
+        eventDto.setStatus(SUCCESS);
+        eventDto.setSource(CURRENT_SOURCE);
         addHistory(eventDto, "Email successfully sent!");
     }
 
