@@ -44,12 +44,12 @@ Antes de rodar os projetos será necessário realizar algumas configurações:
 Para rodar o projeto siga os seguintes passos:
 
 1. Execute o arquivo **docker-compose** que está na raiz do projeto para subir os serviços necessários:
-```
+``` shell
 docker-compose up --build -d zookeeper kafka redpanda-console order-db order-validation-db order-register-db
 ```
 
 2. Execute cada microsserviço individualmente dentro da IDE que esteja utilizando ou execute o projeto através do **maven**. Para isso entra na pasta de cada serviço e execute o seguinte comando:
-```
+``` shell
 ./mvnw spring-boot:run
 ```
 
