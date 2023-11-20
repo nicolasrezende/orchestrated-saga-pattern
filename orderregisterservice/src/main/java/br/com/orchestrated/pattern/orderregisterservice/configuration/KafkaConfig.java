@@ -1,4 +1,4 @@
-package br.com.orchestrated.pattern.ordervalidationservice.configuration;
+package br.com.orchestrated.pattern.orderregisterservice.configuration;
 
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.admin.NewTopic;
@@ -36,11 +36,11 @@ public class KafkaConfig {
     @Value("${spring.kafka.topic.orchestrator}")
     private String orchestratorTopic;
 
-    @Value("${spring.kafka.topic.order-validation-success}")
-    private String orderValidationSuccessTopic;
+    @Value("${spring.kafka.topic.order-register-success}")
+    private String orderRegisterSuccessTopic;
 
-    @Value("${spring.kafka.topic.order-validation-fail}")
-    private String orderValidationFailTopic;
+    @Value("${spring.kafka.topic.order-register-fail}")
+    private String orderRegisterFailTopic;
 
     @Bean
     public ConsumerFactory<String, String> consumerFactory() {
@@ -91,12 +91,12 @@ public class KafkaConfig {
     }
 
     @Bean
-    public NewTopic orderValidationSuccessTopic() {
-        return buildTopic(orderValidationSuccessTopic);
+    public NewTopic orderRegisterSuccessTopic() {
+        return buildTopic(orderRegisterSuccessTopic);
     }
 
     @Bean
-    public NewTopic orderValidationFailTopic() {
-        return buildTopic(orderValidationFailTopic);
+    public NewTopic orderRegisterFailTopic() {
+        return buildTopic(orderRegisterFailTopic);
     }
 }

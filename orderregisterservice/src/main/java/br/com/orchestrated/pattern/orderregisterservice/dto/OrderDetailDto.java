@@ -1,6 +1,6 @@
-package br.com.orchestrated.pattern.ordervalidationservice.dto;
+package br.com.orchestrated.pattern.orderregisterservice.dto;
 
-import br.com.orchestrated.pattern.ordervalidationservice.enums.ETypeOperation;
+import br.com.orchestrated.pattern.orderregisterservice.enums.ETypeOperation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

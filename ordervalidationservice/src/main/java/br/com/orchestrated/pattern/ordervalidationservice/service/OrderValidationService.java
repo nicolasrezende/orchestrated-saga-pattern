@@ -54,7 +54,7 @@ public class OrderValidationService {
             handleSuccess(eventDto);
 
         } catch(Exception ex) {
-            log.error("Error trying to validate product: ", ex);
+            log.error("Error trying to validate order: ", ex);
             handleFailCurrentNotExecuted(eventDto, ex.getMessage());
         }
 
@@ -96,6 +96,7 @@ public class OrderValidationService {
     private void sumTotalOrder(StockDetailDto stock, OrderDetailDto orderDetailDto) {
 
         var total = stock.getPrice() * orderDetailDto.getTradeQuantity();
+        orderDetailDto.setPrice(stock.getPrice());
         orderDetailDto.setTotal(total);
     }
 
