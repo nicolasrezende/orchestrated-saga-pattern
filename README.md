@@ -53,7 +53,7 @@ docker-compose up --build -d zookeeper kafka redpanda-console order-db order-val
 ./mvnw spring-boot:run
 ```
 
-# Testando a aplicação
+# Testando o fluxo
 
 Para criar um pedido e iniciar toda a saga é necessário realizar um **POST** para o seguinte endpoint: http://localhost:3000/api/order
 
@@ -65,6 +65,72 @@ Exemplo de requisição para passar no body:
 	"tickerSymbol": "PETR4",
 	"tradeQuantity": 5,
 	"operation": "BUY"
+}
+```
+
+Para buscar o pedido e acompanhar o andamento da saga é necessário realizar um **GET** para os seguintes endpoints, filtrando por **order id** ou **transaction id**:
+
+http://localhost:3000/api/event?orderId=655bdca64867ff706f47e0af
+
+http://localhost:3000/api/event?transactionId=1700407203438_04ec59d1-8e1a-4794-89f9-b160bb9a6de2
+
+Exemplo de resposta:
+
+``` json
+{
+	"id": "655bdbd74867ff706f47e0ac",
+	"transactionId": "1700518871921_47e14c2c-afdb-44b5-aa4d-26a418da7af0",
+	"orderId": "655bdbd74867ff706f47e0ab",
+	"order": {
+		"id": "655bdbd74867ff706f47e0ab",
+		"costumer": {
+			"name": "Joaquim Ferreira",
+			"document": "27242216052",
+			"email": "joaquim.ferreira@gmail.com"
+		},
+		"orderDetail": {
+			"tickerSymbol": "PPAS3",
+			"tradeQuantity": 7,
+			"operation": "BUY",
+			"total": 356.51
+		},
+		"createdAt": "2023-11-20T19:21:11.913"
+	},
+	"source": "ORCHESTRATOR",
+	"status": "SUCCESS",
+	"histories": [
+		{
+			"source": "ORCHESTRATOR",
+			"status": "SUCCESS",
+			"message": "Saga started!",
+			"createdAt": "2023-11-20T19:21:11.952"
+		},
+		{
+			"source": "ORDER_VALIDATION_SERVICE",
+			"status": "SUCCESS",
+			"message": "Order are validated successfully!",
+			"createdAt": "2023-11-20T19:21:13.346"
+		},
+		{
+			"source": "ORDER_REGISTER_SERVICE",
+			"status": "SUCCESS",
+			"message": "Order register successfully!",
+			"createdAt": "2023-11-20T19:21:13.378"
+		},
+		{
+			"source": "ORDER_REGISTER_SERVICE",
+			"status": "SUCCESS",
+			"message": "Email successfully sent!",
+			"createdAt": "2023-11-20T19:21:16.934"
+		},
+		{
+			"source": "ORCHESTRATOR",
+			"status": "SUCCESS",
+			"message": "Saga finished successfully!",
+			"createdAt": "2023-11-20T19:21:16.971"
+		}
+	],
+	"createdAt": "2023-11-20T19:21:16.983"
 }
 ```
 
