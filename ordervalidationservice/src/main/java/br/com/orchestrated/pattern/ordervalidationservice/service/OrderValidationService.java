@@ -185,6 +185,7 @@ public class OrderValidationService {
         kafkaProducer.sendEvent(jsonUtil.toJson(eventDto));
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     private void rollbackTransaction(EventDto eventDto) {
         var validation = this.findByOrderIdAndTransactionId(eventDto.getOrderId(), eventDto.getTransactionId());
         validation.setSuccess(false);
