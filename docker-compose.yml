@@ -84,7 +84,7 @@ services:
       - kafka
 
   order-service:
-    build: './order-service'
+    build: './orderservice'
     container_name: order-service
     depends_on:
       - order-db
@@ -98,7 +98,7 @@ services:
       - 3000:3000
 
   orchestrator-service:
-    build: './orchestrator-service'
+    build: './orchestratorservice'
     container_name: orchestrator-service
     depends_on:
       - kafka
@@ -110,7 +110,7 @@ services:
       - 8080:8080
 
   order-validation-service:
-    build: './order-validation-service'
+    build: './ordervalidationservice'
     container_name: order-validation-service
     depends_on:
       - order-validation-db
@@ -128,7 +128,7 @@ services:
       - 8090:8090
 
   order-register-service:
-    build: './order-register-service'
+    build: './orderregisterservice'
     container_name: order-register-service
     depends_on:
       - order-register-db
