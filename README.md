@@ -61,10 +61,10 @@ Exemplo de requisição para passar no body:
 
 ``` json
 {
-	"customerDocument": "27242216052",
-	"tickerSymbol": "PETR4",
-	"tradeQuantity": 5,
-	"operation": "BUY"
+  "customerDocument": "27242216052",
+  "tickerSymbol": "PETR4",
+  "tradeQuantity": 5,
+  "operation": "BUY"
 }
 ```
 
@@ -78,59 +78,59 @@ Exemplo de resposta:
 
 ``` json
 {
-	"id": "655bdbd74867ff706f47e0ac",
-	"transactionId": "1700518871921_47e14c2c-afdb-44b5-aa4d-26a418da7af0",
-	"orderId": "655bdbd74867ff706f47e0ab",
-	"order": {
-		"id": "655bdbd74867ff706f47e0ab",
-		"costumer": {
-			"name": "Joaquim Ferreira",
-			"document": "27242216052",
-			"email": "joaquim.ferreira@gmail.com"
-		},
-		"orderDetail": {
-			"tickerSymbol": "PPAS3",
-			"tradeQuantity": 7,
-			"operation": "BUY",
-			"total": 356.51
-		},
-		"createdAt": "2023-11-20T19:21:11.913"
-	},
-	"source": "ORCHESTRATOR",
-	"status": "SUCCESS",
-	"histories": [
-		{
-			"source": "ORCHESTRATOR",
-			"status": "SUCCESS",
-			"message": "Saga started!",
-			"createdAt": "2023-11-20T19:21:11.952"
-		},
-		{
-			"source": "ORDER_VALIDATION_SERVICE",
-			"status": "SUCCESS",
-			"message": "Order are validated successfully!",
-			"createdAt": "2023-11-20T19:21:13.346"
-		},
-		{
-			"source": "ORDER_REGISTER_SERVICE",
-			"status": "SUCCESS",
-			"message": "Order register successfully!",
-			"createdAt": "2023-11-20T19:21:13.378"
-		},
-		{
-			"source": "ORDER_REGISTER_SERVICE",
-			"status": "SUCCESS",
-			"message": "Email successfully sent!",
-			"createdAt": "2023-11-20T19:21:16.934"
-		},
-		{
-			"source": "ORCHESTRATOR",
-			"status": "SUCCESS",
-			"message": "Saga finished successfully!",
-			"createdAt": "2023-11-20T19:21:16.971"
-		}
-	],
-	"createdAt": "2023-11-20T19:21:16.983"
+  "id": "655bdbd74867ff706f47e0ac",
+  "transactionId": "1700518871921_47e14c2c-afdb-44b5-aa4d-26a418da7af0",
+  "orderId": "655bdbd74867ff706f47e0ab",
+  "order": {
+    "id": "655bdbd74867ff706f47e0ab",
+    "costumer": {
+      "name": "Joaquim Ferreira",
+      "document": "27242216052",
+      "email": "joaquim.ferreira@gmail.com"
+    },
+    "orderDetail": {
+      "tickerSymbol": "PPAS3",
+      "tradeQuantity": 7,
+      "operation": "BUY",
+      "total": 356.51
+    },
+    "createdAt": "2023-11-20T19:21:11.913"
+  },
+  "source": "ORCHESTRATOR",
+  "status": "SUCCESS",
+  "histories": [
+    {
+      "source": "ORCHESTRATOR",
+      "status": "SUCCESS",
+      "message": "Saga started!",
+      "createdAt": "2023-11-20T19:21:11.952"
+    },
+    {
+      "source": "ORDER_VALIDATION_SERVICE",
+      "status": "SUCCESS",
+      "message": "Order are validated successfully!",
+      "createdAt": "2023-11-20T19:21:13.346"
+    },
+    {
+      "source": "ORDER_REGISTER_SERVICE",
+      "status": "SUCCESS",
+      "message": "Order register successfully!",
+      "createdAt": "2023-11-20T19:21:13.378"
+    },
+    {
+      "source": "ORDER_REGISTER_SERVICE",
+      "status": "SUCCESS",
+      "message": "Email successfully sent!",
+      "createdAt": "2023-11-20T19:21:16.934"
+    },
+    {
+      "source": "ORCHESTRATOR",
+      "status": "SUCCESS",
+      "message": "Saga finished successfully!",
+      "createdAt": "2023-11-20T19:21:16.971"
+    }
+  ],
+  "createdAt": "2023-11-20T19:21:16.983"
 }
 ```
 
