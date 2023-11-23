@@ -37,9 +37,9 @@ Antes de rodar os projetos será necessário realizar algumas configurações:
 
 2. Entre no arquivo `application.properties` do projeto `orderregisterservice` e altere as linhas `spring.mail.username` e `spring.mail.password` colocando um e-mail e senha respectivamente.
 
-# Rodar o projeto
+# Rodando o projeto
 
-> Para rodar o projeto é necessário ter o docker instalado
+> Antes de rodar o projeto é necessário ter o docker instalado
 
 Para rodar o projeto siga os seguintes passos:
 
